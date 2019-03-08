@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace AlbumCollection.Repositories
 {
-    public abstract class IAlbumRepository
+    public interface IAlbumRepository
     {
-        Album album;       
-
-        public abstract Album GetById();
+        Album GetById(int id);
     }
 }

@@ -9,14 +9,29 @@ namespace AlbumCollection.Tests
 {
     public class AlbumRepositoryTests
     {
-        [Fact]
-        public void Repo_Returns_Album()
+        AlbumRepository underTest;
+        public AlbumRepositoryTests()
         {
-            var underTest = new AlbumRepository();
+            var db = new CollectionContext();
+            underTest = new AlbumRepository(db);
+        }
 
-            var result = underTest.GetById();
+        [Fact]
+        public void GetById_Returns_One_Album()
+        {
+            var expected = 1;
+
+            var result = underTest.GetById(expected);
 
             Assert.IsType<Album>(result);
+        }
+
+        [Fact]
+        public void GetAll_Returns_All_Albums()
+        {
+            var result = underTest.GetAll();
+
+            Assert.IsType<List<Album>>(result);
         }
     }
 }

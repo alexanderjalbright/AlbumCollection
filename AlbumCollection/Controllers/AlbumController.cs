@@ -9,15 +9,15 @@ namespace AlbumCollection.Controllers
 {
     public class AlbumController : Controller
     {
-        AlbumRepository repo;
-        public AlbumController(AlbumRepository repo)
+        IAlbumRepository repo;
+        public AlbumController(IAlbumRepository repo)
         {
             this.repo = repo;
         }
 
-        public ViewResult Index()
+        public ViewResult Index(int id)
         {
-            var model = repo.GetById();
+            var model = repo.GetById(id);
             return View(model);
         }
     }

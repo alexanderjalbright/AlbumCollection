@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace AlbumCollection.Repositories
 {
-    public class AlbumRepository
+    public class AlbumRepository : IAlbumRepository
     {
-        Album album;
+        CollectionContext db;
 
-        public AlbumRepository()
+        public AlbumRepository(CollectionContext db)
         {
-            this.album = new Album() { AlbumId = 1, Artist = "Modest Mouse", Name = "Ocean Breathes Salty" };
+            
         }
 
-        public Album GetById()
+        public Album GetById(int id)
         {
-            return album;
+            return db.Albums.Single(album => album.AlbumId == id);
+        }
+
+        public IEnumerable<Album> GetAll()
+        {
+            return db.Albums.ToList();
         }
     }
 }
