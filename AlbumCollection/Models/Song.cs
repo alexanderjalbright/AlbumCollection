@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 
 namespace AlbumCollection.Models
 {
-    public class Album
+    public class Song
     {
-        public int AlbumId { get; set; }
-
+        public int SongId { get; set; }
+        
         public string Name { get; set; }
 
-        public string Artist { get; set; }
-
-        List<Song> Songs { get; set; }
+        public int AlbumId { get; set; }
     }
 }

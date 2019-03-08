@@ -12,7 +12,7 @@ namespace AlbumCollection.Repositories
 
         public AlbumRepository(CollectionContext db)
         {
-            
+            this.db = db;
         }
 
         public Album GetById(int id)

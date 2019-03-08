@@ -40,5 +40,15 @@ namespace AlbumCollection.Tests
 
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void Album_Contains_List_Of_Songs()
+        {
+            var underTest = new Album() { Songs = new List<Song>() };
+
+            var result = underTest.Songs;
+
+            Assert.IsType<List<Song>>(result);
+        }
     }
 }
