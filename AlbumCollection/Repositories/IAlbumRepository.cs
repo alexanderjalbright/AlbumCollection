@@ -9,5 +9,6 @@ namespace AlbumCollection.Repositories
     public interface IAlbumRepository
     {
         Album GetById(int id);
+        IEnumerable<Album> GetAll();
     }
 }

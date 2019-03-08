@@ -21,7 +21,7 @@ namespace AlbumCollection.Tests
         {
             var expected = 1;
 
-            var result = underTest.GetById(expected);
+            var result = underTest.GetById(1);
 
             Assert.IsType<Album>(result);
         }

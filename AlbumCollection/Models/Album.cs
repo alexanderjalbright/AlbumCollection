@@ -13,6 +13,6 @@ namespace AlbumCollection.Models
 
         public string Artist { get; set; }
 
-        List<Song> Songs { get; set; }
+        public virtual List<Song> Songs { get; set; }
     }
 }

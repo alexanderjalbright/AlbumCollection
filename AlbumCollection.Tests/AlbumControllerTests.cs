@@ -4,6 +4,7 @@ using AlbumCollection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace AlbumCollection.Tests
@@ -20,25 +21,36 @@ namespace AlbumCollection.Tests
         }
 
         [Fact]
-        public void Album_Controller_Returns_View()
+        public void Album_Index_Has_Model()
+        {
+            var expectedModel = new List<Album>();
+            repo.GetAll().Returns(expectedModel);
+
+            var result = (List<Album>)underTest.Index().Model;
+
+            Assert.IsType<List<Album>>(result);
+        }
+
+        [Fact]
+        public void Album_Details_Has_View()
         {
             var id = 1;
-            var result = underTest.Index(id);
+            var result = underTest.Details(id);
 
             Assert.IsType<ViewResult>(result);
         }
 
         [Fact]
-        public void Album_Controller_View_Has_Model()
+        public void Album_Details_Has_Model()
         {
             var expectedId = 1;
             var expectedModel = new Album() { AlbumId = expectedId } ;
             repo.GetById(expectedId).Returns(expectedModel);
 
-            var model = (Album)underTest.Index(expectedId).Model;
+            var model = (Album)underTest.Details(expectedId).Model;
             var result = model.AlbumId;
 
             Assert.Equal(expectedId, result);
-        }        
+        }     
     }
 }

@@ -11,6 +11,6 @@ namespace AlbumCollection.Models
         
         public string Name { get; set; }
 
-        public int AlbumId { get; set; }
+        public virtual int AlbumId { get; set; }
     }
 }
