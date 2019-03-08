@@ -90,5 +90,7 @@ namespace AlbumCollection
 
         }
 
+        public DbSet<AlbumCollection.Models.Song> Song { get; set; }
+
     }
 }
