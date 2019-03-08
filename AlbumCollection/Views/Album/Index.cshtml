@@ -11,5 +11,9 @@
     <title>Collection</title>
 </head>
 <body>
+    @foreach (var album in Model)
+    {
+        <a href="/Album/Details/@album.AlbumId">@album.Name</a>
+    }
 </body>
 </html>
