@@ -22,10 +22,10 @@ namespace AlbumCollection.Tests
         }        
 
         [Fact]
-        public void Album_Details_Has_View()
+        public void Create_Has_View()
         {
             var id = 1;
-            var result = underTest.Create();
+            var result = underTest.Create(id);
 
             Assert.IsType<ViewResult>(result);
         }
