@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlbumCollection.Migrations
 {
     [DbContext(typeof(CollectionContext))]
-    [Migration("20190308191607_Songs")]
-    partial class Songs
+    [Migration("20190311095809_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,8 @@ namespace AlbumCollection.Migrations
 
                     b.Property<string>("Artist");
 
+                    b.Property<string>("ImageURL");
+
                     b.Property<string>("Name");
 
                     b.HasKey("AlbumId");
@@ -35,9 +37,9 @@ namespace AlbumCollection.Migrations
                     b.ToTable("Albums");
 
                     b.HasData(
-                        new { AlbumId = 1, Artist = "Modest Mouse", Name = "This Is a Long Drive for Someone with Nothing to Think About" },
-                        new { AlbumId = 2, Artist = "Modest Mouse", Name = "The Lonesome Crowded West" },
-                        new { AlbumId = 3, Artist = "Modest Mouse", Name = "The Moon & Antarctica" }
+                        new { AlbumId = 1, Artist = "Modest Mouse", ImageURL = "/images/LongDrive.jpg", Name = "This Is a Long Drive for Someone with Nothing to Think About" },
+                        new { AlbumId = 2, Artist = "Modest Mouse", ImageURL = "/images/CrowdedWest.jpg", Name = "The Lonesome Crowded West" },
+                        new { AlbumId = 3, Artist = "Modest Mouse", ImageURL = "/images/Moon.jpg", Name = "The Moon & Antarctica" }
                     );
                 });
 

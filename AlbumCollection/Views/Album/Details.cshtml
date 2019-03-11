@@ -15,7 +15,7 @@
 </head>
 <body>
     <section class="art">
-        
+        <img src="@Model.ImageURL">
     </section>
     <section class="title">
         <div class="title-info">
@@ -28,15 +28,11 @@
             <h1>Tracks</h1>
             @foreach (var song in Model.Songs)
             {
-                <li>
-                    <h3>@song.Name</h3>
-                </li>
+                <li>@song.Name</li>
             }
-            <li>
-                <h3><a href="/Song/Create/@Model.AlbumId">Add Song</a></h3>
-            </li>
+            <li><a href="/Song/Create/@Model.AlbumId">Add Song</a></li>
         </ol>
-    </sectionclass="songs">
+    </section>
 </body>
 <nav>
     <a class="button" href="/Album/Index">Return to Collection</a>

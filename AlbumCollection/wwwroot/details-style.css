@@ -1,13 +1,18 @@
-/**{
+* {
+    font-family: Capriola, sans-serif;
     margin: 0;
     padding: 0;
-}*/
+    line-height: 1.6em;
+}
+
+
 
 body {
-    margin: 3em auto;
+    margin: 4em auto;
     width: 90%;
     background-color: #ddd;
     display: grid;
+    grid-template-columns: 1fr 3fr;
     grid-template-areas: 'art songs'
                          'title songs';
     grid-gap: 20px;
@@ -16,27 +21,53 @@ body {
 .art{
     grid-area: art;
     height: 400px;
+    width: 400px;
+}
+
+.art img{
+    width: 100%;
+    object-fit: cover;
 }
 
 .title {
     grid-area: title;
+    width: 400px;
 }
 
-.songs{
+.songs {
     grid-area: songs;
     max-height: 90vh;
     overflow-y: scroll;
+    border: 3px solid #333;
+    
 }
-.songs h1{
-    background-color: #333;
-    color: #bbb;
-    text-align: center;
-}
+    .songs h1 {
+        background-color: #333;
+        color: #ddd;
+        text-align: center;
+        margin-top: 0;
+    }
 
-.songs ol{
-    margin: 0;
-    padding: 0 2em;
+    .songs ol {
+        list-style-position: inside;
+        
+    }
+
+    .songs li {
+        font-size: 2em;
+        font-family: Arial;
+        padding-left: 0.5em;
+        border-bottom: 2px solid #333;
+    }
+
+.songs li > a{
+    text-decoration: none;
+    color: deepskyblue;
 }
+        .songs li > a:hover{
+            color: #555;
+            
+        }
 
 nav{
     position: fixed;

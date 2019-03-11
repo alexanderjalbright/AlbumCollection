@@ -26,6 +26,8 @@ namespace AlbumCollection.Migrations
 
                     b.Property<string>("Artist");
 
+                    b.Property<string>("ImageURL");
+
                     b.Property<string>("Name");
 
                     b.HasKey("AlbumId");
@@ -33,9 +35,9 @@ namespace AlbumCollection.Migrations
                     b.ToTable("Albums");
 
                     b.HasData(
-                        new { AlbumId = 1, Artist = "Modest Mouse", Name = "This Is a Long Drive for Someone with Nothing to Think About" },
-                        new { AlbumId = 2, Artist = "Modest Mouse", Name = "The Lonesome Crowded West" },
-                        new { AlbumId = 3, Artist = "Modest Mouse", Name = "The Moon & Antarctica" }
+                        new { AlbumId = 1, Artist = "Modest Mouse", ImageURL = "/images/LongDrive.jpg", Name = "This Is a Long Drive for Someone with Nothing to Think About" },
+                        new { AlbumId = 2, Artist = "Modest Mouse", ImageURL = "/images/CrowdedWest.jpg", Name = "The Lonesome Crowded West" },
+                        new { AlbumId = 3, Artist = "Modest Mouse", ImageURL = "/images/Moon.jpg", Name = "The Moon & Antarctica" }
                     );
                 });
 

@@ -29,19 +29,22 @@ namespace AlbumCollection
                     {
                         AlbumId = 1,
                         Name = "This Is a Long Drive for Someone with Nothing to Think About",
-                        Artist = "Modest Mouse"
+                        Artist = "Modest Mouse",
+                        ImageURL = "/images/LongDrive.jpg"
                     },
                     new Album()
                     {
                         AlbumId = 2,
                         Name = "The Lonesome Crowded West",
-                        Artist = "Modest Mouse"
+                        Artist = "Modest Mouse",
+                        ImageURL = "/images/CrowdedWest.jpg"
                     },
                     new Album()
                     {
                         AlbumId = 3,
                         Name = "The Moon & Antarctica",
-                        Artist = "Modest Mouse"
+                        Artist = "Modest Mouse",
+                        ImageURL = "/images/Moon.jpg"
                     }
                 );
 

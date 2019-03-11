@@ -3,10 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AlbumCollection.Migrations
 {
-    public partial class Songs : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Albums",
+                columns: table => new
+                {
+                    AlbumId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Artist = table.Column<string>(nullable: true),
+                    ImageURL = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Albums", x => x.AlbumId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Song",
                 columns: table => new
@@ -29,12 +44,18 @@ namespace AlbumCollection.Migrations
 
             migrationBuilder.InsertData(
                 table: "Albums",
-                columns: new[] { "AlbumId", "Artist", "Name" },
-                values: new object[,]
-                {
-                    { 2, "Modest Mouse", "The Lonesome Crowded West" },
-                    { 3, "Modest Mouse", "The Moon & Antarctica" }
-                });
+                columns: new[] { "AlbumId", "Artist", "ImageURL", "Name" },
+                values: new object[] { 1, "Modest Mouse", "/images/LongDrive.jpg", "This Is a Long Drive for Someone with Nothing to Think About" });
+
+            migrationBuilder.InsertData(
+                table: "Albums",
+                columns: new[] { "AlbumId", "Artist", "ImageURL", "Name" },
+                values: new object[] { 2, "Modest Mouse", "/images/CrowdedWest.jpg", "The Lonesome Crowded West" });
+
+            migrationBuilder.InsertData(
+                table: "Albums",
+                columns: new[] { "AlbumId", "Artist", "ImageURL", "Name" },
+                values: new object[] { 3, "Modest Mouse", "/images/Moon.jpg", "The Moon & Antarctica" });
 
             migrationBuilder.InsertData(
                 table: "Song",
@@ -42,14 +63,7 @@ namespace AlbumCollection.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "Dramamine" },
-                    { 2, 1, "Breakthrough" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Song",
-                columns: new[] { "SongId", "AlbumId", "Name" },
-                values: new object[,]
-                {
+                    { 2, 1, "Breakthrough" },
                     { 3, 2, "Teeth Like God's Shoeshine" },
                     { 4, 2, "Heart Cooks Brain" },
                     { 5, 3, "3rd Planet" },
@@ -67,15 +81,8 @@ namespace AlbumCollection.Migrations
             migrationBuilder.DropTable(
                 name: "Song");
 
-            migrationBuilder.DeleteData(
-                table: "Albums",
-                keyColumn: "AlbumId",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Albums",
-                keyColumn: "AlbumId",
-                keyValue: 3);
+            migrationBuilder.DropTable(
+                name: "Albums");
         }
     }
 }
