@@ -9,18 +9,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/style.css" rel="stylesheet" />
+    <link href="~/details-style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Capriola|Barlow+Semi+Condensed:700" rel="stylesheet">
     <title>@Model.Name</title>
 </head>
 <body>
-    <section>
+    <section class="art">
+        
+    </section>
+    <section class="title">
         <div class="title-info">
             <h1>@Model.Name</h1>
-            <h2>By: @Model.Artist</h2>
+            <h3>By: @Model.Artist</h3>
         </div>
-        <ol class="songs">
-            <h1>Songs:</h1>
+    </section>
+    <section class="songs">
+        <ol>
+            <h1>Tracks</h1>
             @foreach (var song in Model.Songs)
             {
                 <li>
@@ -31,13 +36,12 @@
                 <h3><a href="/Song/Create/@Model.AlbumId">Add Song</a></h3>
             </li>
         </ol>
-    </section>
-    <section class="return-section">
-        <h2>
-            <a class="button" href="/Album/Index">Return to Collection</a>
-        </h2>
-    </section>
-    
-    
+    </sectionclass="songs">
 </body>
+<nav>
+    <a class="button" href="/Album/Index">Return to Collection</a>
+        
+</nav>
+    
+
 </html>
