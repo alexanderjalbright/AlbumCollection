@@ -8,21 +8,26 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/style.css" rel="stylesheet" />
+    <link href="~/index-style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Capriola|Barlow+Semi+Condensed:700" rel="stylesheet">
     <title>Collection</title>
 </head>
-<body>
-    <h1>Albums:</h1>
-    <ol>
-       @foreach (var album in Model)
-        { 
-            <li>
-                <h3>
-                     <a href="/Album/Details/@album.AlbumId">@album.Name</a>
-                 </h3>
-            </li>
-        }
-    </ol>
+<body >
+    <section class="albums">
+        <h1 class="title">Albums:</h1>
+        <ol>
+            @foreach (var album in Model)
+            {
+                <li>
+                    
+                        <a href="/Album/Details/@album.AlbumId">@album.Name</a>
+                   
+                </li>
+            }
+        </ol>
+    </section>
 </body>
+<nav>
+
+</nav>
 </html>
